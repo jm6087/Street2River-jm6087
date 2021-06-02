@@ -6,7 +6,7 @@
 // @exclude        	https://www.waze.com/user/*editor/*
 // @exclude         	https://www.waze.com/*/user/*editor/*
 // @grant 		none
-// @version 		20210319
+// @version 		20210602
 // ==/UserScript==
 
 // Created copy of WME Street to River PLUS to fix upcoming deprecation of Waze
@@ -25,7 +25,7 @@
 //
 // Updated by: Eduardo Carvajal
 
-var version = '20200524';
+var version = '20210602';
 
 var idMeters  = 0;
 var idWidth = 1;
@@ -357,6 +357,7 @@ function streetToRiver_init() {
             // 2014-10-08: Creates river's Landmark
             riverLandmark = new wazefeatureVectorLandmark();
             riverLandmark.geometry = polygon;
+	    riverLandmark.attributes.lockRank = 2;
             riverLandmark.attributes.categories.push("RIVER_STREAM");
 
             // 2014-01-09: Add river's name base on Street Name
